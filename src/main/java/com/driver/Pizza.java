@@ -10,6 +10,7 @@ public class Pizza {
     private int nonvegtopprice=120;
     private int takeawayprice=20;
     private Boolean isVeg;
+    private Boolean getbill=false;
     private String bill="";
 
     private Boolean cheeseadded=false;
@@ -57,19 +58,22 @@ public class Pizza {
     }
 
     public String getBill(){
-        if(isVeg){
-            this.bill+="Base Price Of The Pizza: 300"+"\n";
+        if(!getbill){
+            if(isVeg){
+                this.bill+="Base Price Of The Pizza: 300"+"\n";
+            }
+            if(!isVeg){
+                this.bill+="Base Price Of The Pizza: 400"+"\n";
+            }
+            if(cheeseadded){
+                this.bill+="Extra Cheese Added: 80"+"\n";
+            }
+            if(toppingadded){
+                this.bill+="Extra Toppings Added: 120"+"\n";
+            }
+            this.bill+="Total Price: "+this.price;
         }
-        if(!isVeg){
-            this.bill+="Base Price Of The Pizza: 400"+"\n";
-        }
-        if(cheeseadded){
-            this.bill+="Extra Cheese Added: 80"+"\n";
-        }
-        if(toppingadded){
-            this.bill+="Extra Toppings Added: 120"+"\n";
-        }
-        this.bill+="Total Price: "+this.price;
+
         return this.bill;
     }
 }
