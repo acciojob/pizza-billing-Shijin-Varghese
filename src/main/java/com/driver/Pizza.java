@@ -72,6 +72,7 @@ public class Pizza {
                 this.bill+="Extra Toppings Added: 120"+"\n";
             }
             this.bill+="Total Price: "+this.price;
+            getbill=true;
         }
 
         return this.bill;
